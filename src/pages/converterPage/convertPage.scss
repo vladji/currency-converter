@@ -1,0 +1,26 @@
+.converter {
+  .converter_input-wrapper {
+    height: 30px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+
+    .input, .button {
+      height: 100%;
+      padding: 0 10px;
+    }
+
+    .button {
+      margin-left: 20px;
+    }
+
+    .input-note {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+
+  .result {
+    margin-top: 20px;
+  }
+}
+

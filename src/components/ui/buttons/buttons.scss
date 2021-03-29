@@ -1,0 +1,20 @@
+@import 'src/styles/constants.scss';
+
+.button {
+  &.disabled {
+    background-color: #ccc;
+  }
+
+  cursor: pointer;
+}
+
+.main-button {
+  font-weight: 600;
+  color: $white;
+  background-color: $strange-blue;
+}
+
+.nav-button {
+  min-width: 50px;
+  padding: 5px 10px;
+}

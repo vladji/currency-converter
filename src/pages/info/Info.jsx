@@ -1,9 +1,10 @@
 import Layout from "layout/Layout";
+import BaseCurrency from "components/baseCurrency/BaseCurrency";
 
 const Info = ({ location }) => (
     <Layout location={location}>
-        <p>TEST</p>
-        <h2>Info page</h2>
+        <h2>Info</h2>
+        <BaseCurrency />
     </Layout>
 );
 
