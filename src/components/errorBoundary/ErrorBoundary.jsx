@@ -1,28 +1,19 @@
 import React from 'react';
-import './errorBoundary.scss';
 
 export default class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { error: null, errorInfo: null };
+        this.state = { hasError: false };
     }
 
-    componentDidCatch(error, errorInfo) {
-        this.setState({
-            error: error,
-            errorInfo: errorInfo
-        });
+    static getDerivedStateFromError() {
+        return { hasError: true };
     }
 
     render() {
-        if (this.state.errorInfo) {
-            return (
-                <div className="error-boundary">
-                    <h3>Something went wrong...</h3>
-                    {this.state.error && this.state.error.toString()}
-                </div>
-            );
+        if (this.state.hasError) {
+            return <h1>Something went wrong.</h1>;
         }
         return this.props.children;
     }
-}
+};

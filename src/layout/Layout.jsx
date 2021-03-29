@@ -7,9 +7,9 @@ const Layout = ({ children, location }) => {
     return (
         <>
             <header className="header">
-                <h1>Currency converter</h1>
+                <h1>Currency informer</h1>
                 <nav>
-                    {navigationData.map(button => <NavButton route={button[1]}>{button[0]}</NavButton>)}
+                    {navigationData.map(button => <NavButton key={button[1]} route={button[1]}>{button[0]}</NavButton>)}
                 </nav>
             </header>
             <main className="main">
