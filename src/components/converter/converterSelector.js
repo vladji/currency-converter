@@ -1,5 +1,4 @@
 export const getConvertReady = store => store.converter.isReady;
-export const getCurrenciesSymbols = store => store.converter.symbols;
 export const getConvertedValue = store => store.converter.convertedValue;
 
 export const getCurrencyQueryData = (store) => {

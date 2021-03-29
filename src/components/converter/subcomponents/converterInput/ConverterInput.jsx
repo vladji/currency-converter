@@ -1,22 +1,23 @@
 import { connect } from 'react-redux';
 import { converterReady, setConvertedValue, setCurrencyQueryData } from "components/converter/converterActions";
-import { getConvertedValue, getCurrenciesSymbols } from "components/converter/converterSelector";
+import { getConvertedValue } from "components/converter/converterSelector";
+import { getAllCurrencies } from "App/appSelector";
 import { valueHandler } from "components/converter/valueHandler";
 
 const ConverterInput = ({
                             converterReady,
-                            currenciesSymbols,
+                            allCurrencies,
                             setCurrencyQueryData,
                             convertedValue,
                             setConvertedValue,
                         }) => {
     const inputChange = (e) => {
         if (!convertedValue) {
-            valueHandler(e, converterReady, currenciesSymbols, setCurrencyQueryData);
+            valueHandler(e, converterReady, allCurrencies, setCurrencyQueryData);
         } else {
             setConvertedValue(null);
             setCurrencyQueryData({});
-            valueHandler(e, converterReady, currenciesSymbols, setCurrencyQueryData);
+            valueHandler(e, converterReady, allCurrencies, setCurrencyQueryData);
         }
     };
     return (
@@ -30,7 +31,7 @@ const ConverterInput = ({
 };
 
 export default connect(store => ({
-    currenciesSymbols: getCurrenciesSymbols(store),
+    allCurrencies: getAllCurrencies(store),
     convertedValue: getConvertedValue(store),
 }), { converterReady, setCurrencyQueryData, setConvertedValue })
 (ConverterInput);

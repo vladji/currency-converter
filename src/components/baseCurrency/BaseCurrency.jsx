@@ -1,8 +1,7 @@
 const BaseCurrency = () => {
     return (
         <section className="base-currency">
-            <h3>Base currency</h3>
-            <div>result</div>
+            <h2>Base currency</h2>
         </section>
     );
 };

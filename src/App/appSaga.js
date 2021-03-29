@@ -1,15 +1,21 @@
-import { put, takeEvery } from 'redux-saga/effects';
-import { setCurrenciesSymbols } from "components/converter/converterActions";
-import { API_GET_CURRENCIES_SYMBOLS } from "./appActions";
-import {API_KEY, BASE_URL, CURRENCIES} from "../constants/api";
+import { put, select, takeEvery } from 'redux-saga/effects';
+import { API_GET_ALL_CURRENCIES, setAllCurrencies } from "./appActions";
+import { getBaseCurrency } from "./appSelector";
+import { setErrorMessage } from "components/error/erroAction";
+import { BASE_URL, FROM, LATEST } from "../constants/api";
 
 function* getSymbols () {
-    const url = `${BASE_URL}${CURRENCIES}?${API_KEY}`;
+    const baseCurrency = yield select(getBaseCurrency);
+    const url = `${BASE_URL}${LATEST}?${FROM}${baseCurrency}`;
     const response = yield fetch(url);
-    const result = yield response.json();
-    yield put(setCurrenciesSymbols(result.currencies));
+    if (response.ok) {
+        const result = yield response.json();
+        yield put(setAllCurrencies(result.rates));
+    } else {
+        yield put(setErrorMessage('...ups'));
+    }
 }
 
 export default function* appSaga () {
-    yield takeEvery(API_GET_CURRENCIES_SYMBOLS, getSymbols);
+    yield takeEvery(API_GET_ALL_CURRENCIES, getSymbols);
 }

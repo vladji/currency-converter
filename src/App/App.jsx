@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { apiGetCurrenciesSymbols } from "./appActions";
+import { apiGetAllCurrencies } from "./appActions";
 import ErrorBoundary from "components/errorBoundary/ErrorBoundary";
 import AppRouter from "./AppRouter";
 import Error from "components/error/Error";
 
-const App = ({ apiGetCurrenciesSymbols }) => {
-    apiGetCurrenciesSymbols();
+const App = ({ apiGetAllCurrencies }) => {
+    apiGetAllCurrencies();
     return (
         <ErrorBoundary>
             <AppRouter/>
@@ -14,4 +14,4 @@ const App = ({ apiGetCurrenciesSymbols }) => {
     );
 };
 
-export default connect(null, { apiGetCurrenciesSymbols })(App);
+export default connect(null, { apiGetAllCurrencies })(App);
