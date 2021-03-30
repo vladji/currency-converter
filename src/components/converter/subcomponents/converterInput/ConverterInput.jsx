@@ -1,3 +1,4 @@
+import {useEffect} from "react";
 import { connect } from 'react-redux';
 import { converterReady, setConvertedValue, setCurrencyQueryData } from "components/converter/converterActions";
 import { getConvertedValue } from "components/converter/converterSelector";
@@ -20,6 +21,9 @@ const ConverterInput = ({
             valueHandler(e, converterReady, allCurrencies, setCurrencyQueryData);
         }
     };
+    useEffect(() => {
+        return () => converterReady(false);
+    });
     return (
         <input
             className="input"
