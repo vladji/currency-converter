@@ -8,7 +8,7 @@ const ConvertResult = ({ convertedValue, resultData }) => (
             <p>
                 <span>Result:&nbsp;</span>
                 <span>{resultData.amount}&nbsp;{resultData.from}&nbsp;=&nbsp;</span>
-                <span>{convertedValue}&nbsp;{resultData.to}</span>
+                <span>{convertedValue.toFixed(2)}&nbsp;{resultData.to}</span>
             </p>
         </div>
         }

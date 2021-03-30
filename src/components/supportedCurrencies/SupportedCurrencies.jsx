@@ -8,9 +8,10 @@ const SupportedCurrencies = ({ currenciesSymbols }) => (
         <section className="supported-currencies">
             <h3>Supported currencies</h3>
             <p className="currencies">
-                {currenciesSymbols
-                    .sort()
-                    .map(item => <span key={item}>{item},&nbsp;</span>)}
+                {currenciesSymbols.map((item, index) => {
+                    const separator = (index !== currenciesSymbols.length - 1) ? ',' : null;
+                    return <span key={item}>{item}{separator}&nbsp;</span>;
+                })}
             </p>
         </section>
         }
