@@ -3,8 +3,6 @@
 
   .converter_input-wrapper {
     height: 30px;
-    margin-top: 20px;
-    padding-bottom: 20px;
 
     .input, .button {
       height: 100%;
@@ -14,5 +12,9 @@
     .button {
       margin-left: 20px;
     }
+  }
+
+  .result {
+    margin-top: 20px;
   }
 }
