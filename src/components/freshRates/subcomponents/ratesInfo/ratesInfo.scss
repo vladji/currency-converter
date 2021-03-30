@@ -1,6 +1,9 @@
 .rates-info {
+  max-height: 50vh;
+  margin-top: 20px;
+  overflow-y: scroll;
+
   .currencies-list {
-    margin-top: 20px;
     line-height: 1.2;
   }
 
